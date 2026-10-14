@@ -1,0 +1,213 @@
+:root {
+  --bg-color: #0f286a;
+  --card-bg: rgba(35, 40, 70, 0.75);
+  --card-border: rgba(9, 1, 1, 0.187);
+  --text-primary: #f3f4f6;
+  --text-secondary: #76a1eb;
+  --accent-purple: #5211ea;
+  --accent-blue: rgb(46, 100, 250);
+  --pill-bg: rgba(255, 255, 255, 0.04);
+  --pill-border: rgba(255, 255, 255, 0.08);
+  --pill-hover: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  padding: 24px 16px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+}
+.glow-1 {
+  background: var(--accent-purple);
+  top: 10%;
+  left: 20%;
+}
+.glow-2 {
+  background: var(--accent-blue);
+  bottom: 10%;
+  right: 20%;
+}
+
+.carrd-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 380px;
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  border-radius: 28px;
+  padding: 40px 28px 32px;
+  text-align: center;
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6), 
+              0 0 0 1px rgba(255, 255, 255, 0.05);
+  animation: cardFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover; 
+  object-position: center top;
+  display: block;
+  border: 2px solid rgba(79, 113, 234, 0.938);
+  box-shadow: 0 8px 24px rgba(20, 128, 164, 0.25);
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 14px;
+  height: 14px;
+  background-color: #10b981;
+  border: 2.5px solid #121826;
+  border-radius: 50%;
+}
+
+.profile-text h1 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+
+.profile-text h2 {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--accent-blue);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.bio {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 22px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.tag {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #d1d5db;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.tag:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pill-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 13px 20px;
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-border);
+  border-radius: 9999px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pill-btn:hover {
+  background: var(--pill-hover);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.btn-icon {
+  font-size: 1rem;
+}
+
+.btn-arrow {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  transition: color 0.2s ease;
+}
+
+.pill-btn:hover .btn-arrow {
+  color: #fff;
+}
+
+footer {
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-tag {
+  font-size: 0.75rem;
+  color: #6b7280;
+  letter-spacing: 0.04em;
+}
